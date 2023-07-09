@@ -22,6 +22,8 @@ https://github.com/crazyramirez/FBX2GLB-Batch-Convert-Optimizer
 <br>
 Of course, current Player is from <b>ReadyPlayerMe</b>
 <br>
+Animations use Blending 
+<br>
 <br>
 
 <b><span>&#10003;</span>
@@ -36,6 +38,7 @@ Setup NPM and Install BJS</b>
 <b><span>&#10003;</span>
 Main Code</b>
 - Everything is in main.js in js folder.
+- I use Blending function to smooth the movement between animations.
 - Very simple, take a look and I hope you enjoy it
 <br>
 
