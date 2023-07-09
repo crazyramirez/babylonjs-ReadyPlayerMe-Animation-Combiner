@@ -141,9 +141,20 @@ function getRandomInt(min, max) {
 }
 
 // Random Animation Function
+var disableButton = false;
 function randomAnimation() {  
-    var randomNumber = getRandomInt(0, 8);
+
+    if (disableButton)
+        return;
+    disableButton = true;
+    setTimeout(() => {
+        disableButton = false;
+    }, 1500);
+
+    var randomNumber = getRandomInt(1, 9);
     var newAnimation = scene.animationGroups[randomNumber];
+    console.log("Random Animation: " + newAnimation.name);
+
     scene.onBeforeRenderObservable.runCoroutineAsync(animationBlending(currentAnimation, 1.0, newAnimation, 1.0, true, 0.02));
     document.getElementById("info-text").innerHTML = "Current Animation<br>" + newAnimation.name;
 }

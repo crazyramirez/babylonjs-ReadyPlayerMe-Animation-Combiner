@@ -17,7 +17,10 @@ html, body {
     background: -webkit-linear-gradient(top,  #8bb4ff 0%,#ff60f2 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom,  #8bb4ff 0%,#ff60f2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FB7BA2', endColorstr='#FCE043',GradientType=0 ); /* IE6-9 */
-    /* border: 25px solid rgb(255, 255, 255); */
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
 }
 
 #loadingText {
@@ -35,6 +38,10 @@ html, body {
     transform: translate(-50%, -50%);
     margin-top: 40px;
     letter-spacing: 0.3rem;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
     /* animation: animText  6s ease infinite alternate; */
 }
 
@@ -112,6 +119,10 @@ html, body {
     text-align: center;
     margin-top: 20px;
     color: white;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
 }
 
 #info-text {
