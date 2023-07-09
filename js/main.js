@@ -67,7 +67,7 @@ function createCamera() {
     camera.setTarget(new BABYLON.Vector3(0, 1, 0));
     camera.allowUpsideDown = false;
     camera.panningSensibility = 0;
-    camera.lowerRadiusLimit = 4;
+    camera.lowerRadiusLimit = 2;
     camera.upperRadiusLimit = 16;
     camera.lowerBetaLimit = 0.75;
     camera.upperBetaLimit = Math.PI / 2;
@@ -77,7 +77,7 @@ function createCamera() {
     camera.useBouncingBehavior = false;
     camera.useAutoRotationBehavior = true;
     camera.autoRotationBehavior.idleRotationSpeed = 0.15;
-    camera.radius = 7;
+    camera.radius = 5;
     camera.attachControl(canvas, true);
 }
 
@@ -155,7 +155,7 @@ function randomAnimation() {
     var newAnimation = scene.animationGroups[randomNumber];
     console.log("Random Animation: " + newAnimation.name);
 
-    scene.onBeforeRenderObservable.runCoroutineAsync(animationBlending(currentAnimation, 1.0, newAnimation, 1.0, true, 0.02));
+    scene.onBeforeRenderObservable.runCoroutineAsync(animationBlending(currentAnimation, 1.0, newAnimation, 1.0, true, 0.05));
     document.getElementById("info-text").innerHTML = "Current Animation<br>" + newAnimation.name;
 }
 
