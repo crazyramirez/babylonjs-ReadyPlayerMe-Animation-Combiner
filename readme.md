@@ -13,7 +13,6 @@ Using animations from
 https://github.com/readyplayerme/animation-library
 
 <br>
-<br>
 And converted from FBX to GLB using this simple NodeJS APP
 <br>
 https://github.com/crazyramirez/FBX2GLB-Batch-Convert-Optimizer
