@@ -48,15 +48,16 @@ function startGame() {
     ground.position.y = -0.1;
     ground.isPickable = false;
     var groundMat = new BABYLON.PBRMaterial("groundMaterial", scene);
-    groundMat.albedoColor = new BABYLON.Color3(0.95,0.95,0.95);
-    groundMat.roughness = 0.85;
+    groundMat.albedoColor = new BABYLON.Color3(0.98,0.98,0.98);
+    groundMat.roughness = 0.15;
     groundMat.metallic = 0;
+    groundMat.specularIntensity = 0;
     ground.material = groundMat;
     ground.receiveShadows = true;
 
     setLighting();    
     importAnimationsAndModel();
-    
+        
     // scene.debugLayer.show({embedMode: true}).then(function () {
     // });
 }
@@ -130,6 +131,7 @@ function importModel(model) {
         document.getElementById("info-text").innerHTML = "Current Animation<br>" + scene.animationGroups[0].name;
         currentAnimation = scene.animationGroups[0];
         hideLoadingView();
+ 
     });
 }
 
