@@ -1,4 +1,4 @@
-# BJS ReadyPlayerMe Animation-Combiner
+# BabylonJS ReadyPlayerMe Animation-Combiner
 
 <br>
 
@@ -6,7 +6,7 @@
 <br>
 <br>
 
-Babylon JS & ReadyPlayerMe -- <b>Combining multiple animations to a character</b>
+Babylon JS & ReadyPlayerMe -- <b>Combining multiple animations to a ReadyPlayerMe Character</b>
 <br>
 <br>
 Used animations from:
