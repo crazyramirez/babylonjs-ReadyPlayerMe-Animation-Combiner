@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "babylonjs": "^6.11.1",
+    "babylonjs-loaders": "^6.11.1",
+    "pepjs": "^0.5.3"
+  }
+}
