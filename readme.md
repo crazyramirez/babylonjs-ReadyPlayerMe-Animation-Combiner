@@ -6,20 +6,21 @@
 <br>
 <br>
 
-Babylon JS & ReadyPlayerMe -- <b>Combining Animations</b>
+Babylon JS & ReadyPlayerMe -- <b>Combining multiple animations to a character</b>
 <br>
-Using animations from
+<br>
+Used animations from:
 <br>
 https://github.com/readyplayerme/animation-library
 
 <br>
-And converted from FBX to GLB using this simple NodeJS APP
+And converted from FBX to GLB using this simple NodeJS APP:
 <br>
 https://github.com/crazyramirez/FBX2GLB-Batch-Convert-Optimizer
 
 <br>
 <br>
-Of course, current Player is from ReadyPlayerMe
+Of course, current Player is from <b>ReadyPlayerMe</b>
 <br>
 <br>
 
