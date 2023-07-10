@@ -164,7 +164,7 @@ function randomAnimation() {
         disableButton = false;
     }, 500);
 
-    var randomNumber = getRandomInt(1, 14);
+    var randomNumber = getRandomInt(1, 13);
     var newAnimation = scene.animationGroups[randomNumber];
     // console.log("Random Animation: " + newAnimation.name);
 
