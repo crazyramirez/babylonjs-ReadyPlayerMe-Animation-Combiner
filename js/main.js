@@ -98,6 +98,7 @@ async function importAnimationsAndModel() {
 
 // Import Animations
 function importAnimations(animation) {
+
     return BABYLON.SceneLoader.ImportMeshAsync(null, "./resources/models/animations/" + animation, null, scene)
       .then((result) => {
         result.meshes.forEach(element => {
@@ -123,6 +124,8 @@ function importModel(model) {
           });
           animation.dispose();
         });
+
+        animationsGLB = null;
         
         setReflections();
         setShadows();
@@ -151,11 +154,18 @@ function randomAnimation() {
     disableButton = true;
     setTimeout(() => {
         disableButton = false;
-    }, 1500);
+    }, 500);
 
     var randomNumber = getRandomInt(1, 9);
     var newAnimation = scene.animationGroups[randomNumber];
-    console.log("Random Animation: " + newAnimation.name);
+    // console.log("Random Animation: " + newAnimation.name);
+
+    // Check if currentAnimation === newAnimation
+    while (currentAnimation === newAnimation) {
+        randomNumber = getRandomInt(1, 9);
+        newAnimation = scene.animationGroups[randomNumber];
+        console.log("Rechecking Anim: " + newAnimation.name);
+    }
 
     scene.onBeforeRenderObservable.runCoroutineAsync(animationBlending(currentAnimation, 1.0, newAnimation, 1.0, true, 0.05));
     document.getElementById("info-text").innerHTML = "Current Animation<br>" + newAnimation.name;
@@ -164,7 +174,6 @@ function randomAnimation() {
 // Animation Blending
 function* animationBlending(fromAnim, fromAnimSpeedRatio, toAnim, toAnimSpeedRatio, repeat, speed)
 {
-    currentAnimation = toAnim;
     let currentWeight = 1;
     let newWeight = 0;
     fromAnim.stop();
@@ -179,6 +188,8 @@ function* animationBlending(fromAnim, fromAnimSpeedRatio, toAnim, toAnimSpeedRat
         fromAnim.setWeightForAllAnimatables(currentWeight);
         yield;
     }
+
+    currentAnimation = toAnim;
 }
 
 // Environment Lighting
