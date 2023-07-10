@@ -114,8 +114,10 @@ function importModel(model) {
 
     BABYLON.SceneLoader.ImportMeshAsync(null, "./resources/models/" + model, null, scene)
       .then((result) => {
+
         player = result.meshes[0];
         player.name = "Character";
+
         const modelTransformNodes = player.getChildTransformNodes();
         
         animationsGLB.forEach((animation) => {
@@ -126,11 +128,12 @@ function importModel(model) {
         });
 
         animationsGLB = null;
+        // Merge Meshes
         
         setReflections();
         setShadows();
         scene.animationGroups[0].play(true, 1.0);
-        console.log("Animations: " + scene.animationGroups);
+        // console.log("Animations: " + scene.animationGroups);
         document.getElementById("info-text").innerHTML = "Current Animation<br>" + scene.animationGroups[0].name;
         currentAnimation = scene.animationGroups[0];
         hideLoadingView();

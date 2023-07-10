@@ -102,7 +102,7 @@ html, body {
 #customBT {
     position: absolute;
     left: 50%;
-    bottom: 50px;
+    bottom: 30px;
     transform: translateX(-50%);
     color: white;
     background-color: rgba(0, 0, 0, 0.25);
