@@ -56,8 +56,8 @@ function startGame() {
     ground.receiveShadows = true;
 
     setLighting();    
-    importAnimationsAndModel();
-        
+    importAnimationsAndModel("readyplayer2.glb");
+
     // scene.debugLayer.show({embedMode: true}).then(function () {
     // });
 }
@@ -86,13 +86,17 @@ function createCamera() {
 var player;
 var animationsGLB = [];
 // Import Animations and Models
-async function importAnimationsAndModel() {
+async function importAnimationsAndModel(model) {
     await importAnimations("/masculine/idle/M_Standing_Idle_Variations_002.glb");
     for (let index = 0; index < 9; index++) {
       var int = index + 1;
       await importAnimations("/masculine/dance/M_Dances_00" + int + ".glb");
     }
-    importModel("readyplayer2.glb");
+    for (let index = 5; index < 9; index++) {
+        var int = index + 1;
+        await importAnimations("/masculine/expression/M_Standing_Expressions_00" + int + ".glb");
+      }
+    importModel(model);
 }
 
 
@@ -118,22 +122,23 @@ function importModel(model) {
         player = result.meshes[0];
         player.name = "Character";
 
-        const modelTransformNodes = player.getChildTransformNodes();
+        var modelTransformNodes = player.getChildTransformNodes();
         
         animationsGLB.forEach((animation) => {
-          const modelAnimationGroup = animation.clone(animation.name + "_clone", (oldTarget) => {
+          const modelAnimationGroup = animation.clone(model.replace(".glb", "_") + animation.name, (oldTarget) => {
             return modelTransformNodes.find((node) => node.name === oldTarget.name);
           });
           animation.dispose();
         });
+        animationsGLB = [];
 
-        animationsGLB = null;
         // Merge Meshes
         
         setReflections();
         setShadows();
         scene.animationGroups[0].play(true, 1.0);
-        // console.log("Animations: " + scene.animationGroups);
+        console.log("Animations: " + scene.animationGroups);
+        console.log("Animations: " + scene.animationGroups.length);
         document.getElementById("info-text").innerHTML = "Current Animation<br>" + scene.animationGroups[0].name;
         currentAnimation = scene.animationGroups[0];
         hideLoadingView();
@@ -159,7 +164,7 @@ function randomAnimation() {
         disableButton = false;
     }, 500);
 
-    var randomNumber = getRandomInt(1, 9);
+    var randomNumber = getRandomInt(1, 14);
     var newAnimation = scene.animationGroups[randomNumber];
     // console.log("Random Animation: " + newAnimation.name);
 
