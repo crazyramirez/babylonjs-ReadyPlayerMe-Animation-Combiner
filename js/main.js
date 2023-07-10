@@ -175,7 +175,7 @@ function randomAnimation() {
         console.log("Rechecking Anim: " + newAnimation.name);
     }
 
-    scene.onBeforeRenderObservable.runCoroutineAsync(animationBlending(currentAnimation, 1.0, newAnimation, 1.0, true, 0.05));
+    scene.onBeforeRenderObservable.runCoroutineAsync(animationBlending(currentAnimation, 1.0, newAnimation, 1.0, true, 0.02));
     document.getElementById("info-text").innerHTML = "Current Animation<br>" + newAnimation.name;
 }
 
